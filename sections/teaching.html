@@ -12,14 +12,22 @@
           --tc-accent:#16736f;
           --tc-accent-soft:rgba(22,115,111,.10);
           --tc-grey-soft:rgba(100,117,128,.10);
+          /* 正文宋体：与 01 / 02 / 06 同一字体栈 */
+          --tc-serif:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
           grid-column:1 / -1;
           width:100%;
         }
 
         .tc-wrap .tc-lede{
-          margin:0 0 4px; font-size:15px; line-height:1.95; color:var(--tc-muted);
+          margin:0 0 4px; font-size:15.2px; line-height:1.95; color:var(--tc-muted);
           text-align:justify; text-justify:inter-ideograph;
         }
+
+        /* 正文换宋体；编号、徽标保持等宽/无衬线，保住层级 */
+        .tc-wrap .tc-lede,
+        .tc-wrap .tc-name,
+        .tc-wrap .tc-rows > li > div,
+        .tc-wrap .tc-note{font-family:var(--tc-serif);}
 
         /* --- 课程卡片 --- */
         .tc-wrap .tc-grid{
@@ -44,7 +52,7 @@
         }
         .tc-wrap .tc-name{
           grid-column:2; grid-row:1;
-          margin:0; font-size:16px; font-weight:600; line-height:1.6;
+          margin:0; font-size:16.5px; font-weight:600; line-height:1.6;
           letter-spacing:.01em; color:#193244;
         }
         .tc-wrap .tc-badges{
@@ -78,7 +86,7 @@
           column-gap:1.1rem; align-items:baseline;
           margin:0; padding:11px 0 12px;
           border-bottom:1px solid var(--tc-line);
-          font-size:14.5px; line-height:1.8;
+          font-size:14.8px; line-height:1.8;
         }
         .tc-wrap .tc-rows > li:last-child{border-bottom:none;}
         .tc-wrap .tc-rows > li > span{
@@ -86,7 +94,7 @@
         }
 
         .tc-wrap .tc-note{
-          margin:18px 0 0; font-size:13px; line-height:1.85; color:var(--tc-muted);
+          margin:18px 0 0; font-size:13.2px; line-height:1.85; color:var(--tc-muted);
         }
         .tc-wrap .tc-note a{color:var(--tc-accent); text-decoration:none; border-bottom:1px solid rgba(22,115,111,.28);}
         .tc-wrap .tc-note a:hover{border-bottom-color:currentColor;}
@@ -94,7 +102,8 @@
         @media (max-width:720px){
           .tc-wrap .tc-grid{grid-template-columns:minmax(0,1fr); gap:11px;}
           .tc-wrap .tc-card{padding:12px 15px 13px; column-gap:10px;}
-          .tc-wrap .tc-rows > li{grid-template-columns:4.6rem minmax(0,1fr); column-gap:.8rem; font-size:14px;}
+          .tc-wrap .tc-name{font-size:16px;}
+          .tc-wrap .tc-rows > li{grid-template-columns:4.6rem minmax(0,1fr); column-gap:.8rem; font-size:14.4px;}
         }
       </style>
 
