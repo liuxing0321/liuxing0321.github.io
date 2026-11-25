@@ -1,3 +1,297 @@
-<!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
-<section class="panel" id="resources" aria-labelledby="title-resources"><div class="section-heading"><span>06</span><h2 id="title-resources">学术故事</h2></div><div class="content"></p>
+<!-- ============================================================
+     01 个人简介
+     用法：整块替换原 #about 面板。
+     .wb-* 样式与 02 学术成果 / 05 荣誉奖励 为同一套；
+     若页面里已粘贴过那两段，本段的 <style> 可直接跳过（规则完全兼容）。
+     ============================================================ -->
+<style>
+  /* ===== 履历板块通用样式（wb-*）：只依赖当前文字颜色，明暗主题通用 ===== */
+  .wb-wrap{
+    --wb-accent:#1b3a57;
+    --wb-accent-soft:rgba(27,58,87,.07);
+    --wb-line:rgba(120,125,132,.22);
+    --wb-meta:#6f757c;
+    --wb-key-bg:#1b3a57;
+    --wb-key-fg:#ffffff;
+    grid-column:1 / -1;
+    width:100%;
+  }
 
+  .wb-wrap .wb-sub{
+    display:flex; align-items:center; gap:.55rem;
+    margin:2.2rem 0 .85rem; padding-bottom:.5rem;
+    font-size:1.02rem; font-weight:600; letter-spacing:.05em; line-height:1.4;
+    border-bottom:1px solid var(--wb-line);
+  }
+  .wb-wrap > .wb-sub:first-child{margin-top:0;}
+  .wb-wrap .wb-sub::before{
+    content:""; width:3px; height:1.05em; flex:none;
+    background:var(--wb-accent); border-radius:2px;
+  }
+
+  .wb-wrap .wb-lede{
+    margin:.2rem 0 0; font-size:1.02rem; line-height:1.95; letter-spacing:.01em;
+    text-align:justify; text-justify:inter-ideograph;
+  }
+  .wb-wrap .wb-text{
+    margin:.15rem 0 0; font-size:.95rem; line-height:1.9;
+    text-align:justify; text-justify:inter-ideograph;
+  }
+
+  /* 研究方向：三栏并列 */
+  .wb-wrap .wb-dirs{
+    list-style:none; margin:0; padding:0;
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+    border-bottom:1px solid var(--wb-line);
+  }
+  .wb-wrap .wb-dirs > li{
+    padding:.9rem 1rem .9rem 1.1rem; border-right:1px solid var(--wb-line);
+    font-size:.93rem; font-weight:500; line-height:1.7;
+  }
+  .wb-wrap .wb-dirs > li:first-child{padding-left:0;}
+  .wb-wrap .wb-dirs > li:last-child{border-right:none; padding-right:0;}
+  .wb-wrap .wb-dirs > li > span{
+    display:block; margin-bottom:.32rem;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.72rem; letter-spacing:.08em; color:var(--wb-accent);
+  }
+
+  /* 履历：日期列 + 内容 */
+  .wb-wrap .wb-list{list-style:none; margin:0; padding:0;}
+  .wb-wrap .wb-list > li{
+    display:grid; grid-template-columns:4.2rem minmax(0,1fr);
+    column-gap:.9rem; padding:.6rem 0; border-bottom:1px solid var(--wb-line);
+  }
+  .wb-wrap .wb-list > li:last-child{border-bottom:none;}
+  .wb-wrap .wb-list.timeline > li{grid-template-columns:8.2rem minmax(0,1fr);}
+
+  .wb-wrap .wb-year{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.78rem; line-height:1.9; letter-spacing:.01em;
+    color:var(--wb-accent); font-variant-numeric:tabular-nums; white-space:nowrap;
+  }
+
+  .wb-wrap .wb-title{margin:0; font-size:.94rem; font-weight:500; line-height:1.65;}
+  .wb-wrap .wb-meta{margin:.25rem 0 0; font-size:.82rem; line-height:1.65; color:var(--wb-meta);}
+
+
+  /* ===== 学术故事：正文改用宋体，与履历的表格化排版形成“阅读区” ===== */
+  .wb-wrap .wb-story-lede{
+    margin:0 0 1.5rem; padding:0 0 1rem;
+    border-bottom:1px solid var(--wb-line);
+    font-size:.94rem; line-height:1.95; color:var(--wb-meta);
+  }
+  .wb-wrap .wb-story p{
+    margin:0 0 .95em; font-size:.95rem; line-height:2; letter-spacing:.01em;
+    text-align:justify; text-justify:inter-ideograph;
+    font-family:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
+  }
+  .wb-wrap .wb-story p:last-child{margin-bottom:0;}
+
+  .wb-wrap .wb-act{
+    display:flex; align-items:center; gap:.6rem;
+    margin:1.9rem 0 .9rem; font-size:.95rem; font-weight:600; letter-spacing:.02em;
+  }
+  .wb-wrap .wb-act::before{
+    content:""; width:1.1rem; height:1px; flex:none; background:var(--wb-accent);
+  }
+
+  .wb-wrap .wb-works{list-style:none; margin:0; padding:0;}
+  .wb-wrap .wb-works > li{
+    display:grid; grid-template-columns:2rem minmax(0,1fr); column-gap:.7rem;
+    padding:1rem 0; border-bottom:1px solid var(--wb-line);
+  }
+  .wb-wrap .wb-works > li:last-child{border-bottom:none; padding-bottom:0;}
+  .wb-wrap .wb-num{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.74rem; line-height:2.1; letter-spacing:.06em; color:var(--wb-accent);
+  }
+  .wb-wrap .wb-works .wb-work{
+    margin:0; font-weight:600; font-size:.97rem; line-height:1.75;
+  }
+  .wb-wrap .wb-works .wb-work a{
+    color:inherit; text-decoration:none; border-bottom:1px solid transparent;
+    transition:color .18s ease, border-color .18s ease;
+  }
+  .wb-wrap .wb-works .wb-work a:hover,
+  .wb-wrap .wb-works .wb-work a:focus-visible{color:var(--wb-accent); border-bottom-color:currentColor;}
+  .wb-wrap .wb-works .wb-venue{
+    margin:.25rem 0 .6rem; font-size:.78rem; line-height:1.7; letter-spacing:.02em;
+    color:var(--wb-meta);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  .wb-wrap .wb-works p{margin-bottom:.5em; font-size:.93rem; line-height:1.95;}
+
+  /* 联系方式：标签 + 值 */
+  .wb-wrap .wb-info{margin:0; padding:0; display:grid; gap:.45rem;}
+  .wb-wrap .wb-info > div{
+    display:grid; grid-template-columns:5rem minmax(0,1fr); gap:.9rem;
+    font-size:.9rem; line-height:1.8;
+  }
+  .wb-wrap .wb-info dt{color:var(--wb-meta); font-size:.85rem; letter-spacing:.02em;}
+  .wb-wrap .wb-info dd{margin:0;}
+  .wb-wrap .wb-info a{
+    color:var(--wb-accent); text-decoration:none;
+    border-bottom:1px solid var(--wb-accent-soft);
+    transition:border-color .18s ease;
+  }
+  .wb-wrap .wb-info a:hover{border-bottom-color:currentColor;}
+
+  @media (max-width:700px){
+    .wb-wrap .wb-dirs{grid-template-columns:minmax(0,1fr);}
+    .wb-wrap .wb-dirs > li{border-right:none; padding:.75rem 0; border-bottom:1px solid var(--wb-line);}
+    .wb-wrap .wb-dirs > li:last-child{border-bottom:none;}
+    .wb-wrap .wb-dirs > li > span{margin-bottom:.2rem;}
+  }
+  @media (max-width:560px){
+    .wb-wrap .wb-list.timeline > li{grid-template-columns:7.2rem minmax(0,1fr); column-gap:.65rem;}
+    .wb-wrap .wb-year{font-size:.74rem;}
+    .wb-wrap .wb-lede{font-size:.96rem;}
+    .wb-wrap .wb-info > div{grid-template-columns:4.2rem minmax(0,1fr); gap:.6rem;}
+  }
+  @media (prefers-color-scheme:dark){
+    .wb-wrap{
+      --wb-accent:#8fb6d6; --wb-accent-soft:rgba(143,182,214,.12);
+      --wb-line:rgba(210,215,222,.18); --wb-meta:#98a1ab;
+      --wb-key-bg:#8fb6d6; --wb-key-fg:#12212e;
+    }
+  }
+</style>
+
+
+<section class="panel" id="about" aria-labelledby="title-about">
+  <div class="section-heading"><span>01</span><h2 id="title-about">个人简介</h2></div>
+
+  <div class="content">
+    <section class="wb-wrap">
+
+      <p class="wb-lede">刘星，浙江大学语言学及应用语言学博士，现任华中科技大学人文学院副教授，博士生导师，院长助理，2022年“武汉英才·青年优秀人才”。目前主要研究的领域是汉语语法，以第一作者身份在 Journal of Chinese Linguistics,《当代语言学》《世界汉语教学》《外国语》《语言科学》等国际、国内核心期刊发表论文十余篇，主持2022年教育部社科基金青年项目（已结项）和2026年国家社科基金项目（在研）和校级自主创新基金项目、本科教学改革重点项目、研究生教改项目等，获2026年华中科技大学“五四”青年奖章（全校教工仅十人），校教学成果二等奖（主持）和教学质量优秀二等奖等奖项，所授课程中三门（《中国语文》《语法学》《现代汉语》）获得华中科技大学“学生最满意课堂”。</p>
+
+      <h2 class="wb-sub">研究方向</h2>
+      <ul class="wb-dirs">
+        <li><span>01</span>国际中文教育</li>
+        <li><span>02</span>形式语言学和类型学框架下的普通话与方言研究</li>
+        <li><span>03</span>语言接触研究，关注赣语和西北方言</li>
+      </ul>
+
+      <h2 class="wb-sub">教育背景</h2>
+      <ul class="wb-list timeline">
+        <li>
+          <span class="wb-year">2017.09—2021.06</span>
+          <div>
+            <p class="wb-title">浙江大学</p>
+            <p class="wb-meta">语言学及应用语言学 · 文学博士学位</p>
+          </div>
+        </li>
+        <li>
+          <span class="wb-year">2014.09—2017.06</span>
+          <div>
+            <p class="wb-title">兰州大学</p>
+            <p class="wb-meta">硕士研究生</p>
+          </div>
+        </li>
+        <li>
+          <span class="wb-year">2010.08—2014.06</span>
+          <div>
+            <p class="wb-title">兰州大学</p>
+            <p class="wb-meta">本科</p>
+          </div>
+        </li>
+      </ul>
+
+      <h2 class="wb-sub">工作经历</h2>
+      <ul class="wb-list timeline">
+        <li>
+          <span class="wb-year">2025.02—至今</span>
+          <div>
+            <p class="wb-title">华中科技大学</p>
+            <p class="wb-meta">人文学院 · 副教授</p>
+          </div>
+        </li>
+        <li>
+          <span class="wb-year">2021.07—2025.02</span>
+          <div>
+            <p class="wb-title">华中科技大学</p>
+            <p class="wb-meta">人文学院中文系 · 讲师</p>
+          </div>
+        </li>
+      </ul>
+
+      <h2 class="wb-sub">科研与教学</h2>
+      <p class="wb-text">研究涉及名词的数与指称、复数与量词、方言语法及语言交互性。论文发表于 Journal of Chinese Linguistics、《当代语言学》《世界汉语教学》《外国语》《语言科学》等期刊。项目、论文和著作详见“学术成果”，教学与奖励详见相应栏目。</p>
+
+      <h2 class="wb-sub">学术故事</h2>
+      <div class="wb-story">
+        <p class="wb-story-lede">1992年生，江西省宜春市袁州区人。研究专长为汉语和方言（赣语、西北方言）的语法研究，尤其喜欢寻找日常语言规律，发现特殊语言现象并加以解释。</p>
+        <p>曾接受功能语言学（硕士）和形式语言学（博士）两套学术训练，相信它们只是看到了语言的不同侧面，关注不同的研究问题，没有高低之分，甚至可以互相印证。以研究问题为纲，不拘泥研究方法。</p>
+
+        <h3 class="wb-act">五篇代表作，以及它们背后的想法</h3>
+        <p>爱看爱写，在主要 C 刊发表论文十余篇。以下五篇是我自己更看重的，排名大致依我心中的分量。</p>
+        <ul class="wb-works">
+          <li>
+            <span class="wb-num">01</span>
+            <div>
+              <p class="wb-work"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/lwcg/2380107/content/112504.htm#lwcg">赣语宜春话小称来源的复数标记“唧”——兼谈小称、量词与复数标记的关系</a></p>
+              <p class="wb-venue">《当代语言学》2023(3): 434–452</p>
+              <p>这篇文章第一次系统地揭示了小称、复数和量词的关系。此前的研究分别发现了量词和复数的关系（Chierchia 1998、Borer 2005 等）、量词和小称的关系（Ott 2001、Wiltschko 2006 等），我正好把小称与复数这条边补上——用的是咱们汉语的材料。个人觉得理论价值比较重要，就算放在世界范围内也是有价值的研究。</p>
+            </div>
+          </li>
+          <li>
+            <span class="wb-num">02</span>
+            <div>
+              <p class="wb-work"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/lwcg/2380107/content/112507.htm#lwcg">复数分裂与人称代词复数的类型</a></p>
+              <p class="wb-venue">《语言科学》2024(4): 382–395；后续研究录用于《语言研究》</p>
+              <p>这篇文章集中反映了我对“复数”这个概念的认识：复数并不是原生的语义范畴，只是表“类”和表“整体”两种机制的副产品。因为表类和表整体都要求大于一个个体／部分，因此看上去就是复数。所谓复数的各种句法语义特征，都源于“类”和“整体”的要求；复数的类型，来源于“类—例”（type-token）和“整体—部分”（part-whole）这两种基础机制，可以用其他的语义学范畴解释。这个观点有点激进，但我觉得是有道理的。</p>
+            </div>
+          </li>
+          <li>
+            <span class="wb-num">03</span>
+            <div>
+              <p class="wb-work"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/lwcg/2380107/content/112505.htm#lwcg">从交互性看评价句中程度副词与“的”“了”的共现问题</a></p>
+              <p class="wb-venue">《世界汉语教学》2023(4): 492–504</p>
+              <p>这篇文章是与一位本科生合作的（他帮我做数据统计），发表在国际中文教育的顶级期刊。主要价值在于引入了我很喜欢的一位语言学家 Martina Wiltschko 的研究，讨论交互性的句法层次问题——她是一位非常有个性和审美的语言学家。</p>
+            </div>
+          </li>
+          <li>
+            <span class="wb-num">04</span>
+            <div>
+              <p class="wb-work"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/lwcg/2380107/content/112502.htm#lwcg">临夏话“们”的非复数用法及“们”的性质新探</a></p>
+              <p class="wb-venue">Journal of Chinese Linguistics 2022(2): 509–531（SSCI / A&amp;HCI）</p>
+              <p>这篇文章第一次揭示了复数和大称的关系。审稿专家说，这是西北方言“们”的研究中最可靠的一份研究之一。我们发现“们”是一个有主观性的标记，不仅仅是数标记。这篇文章和上面第一篇的观点，直接促成了我的第一个教育部社科基金项目——是这个项目点子的来源。</p>
+            </div>
+          </li>
+          <li>
+            <span class="wb-num">05</span>
+            <div>
+              <p class="wb-work"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/lwcg/2380107/content/171503.htm#lwcg">从汉语弱论元名词看汉英光杆名词的数和指称</a></p>
+              <p class="wb-venue">《外国语》2026(5): 34–43</p>
+              <p>这篇文章与世界上最顶级的语义学家 Chierchia 先生争论汉语光杆名词的性质问题。他的研究结论几乎已经成为世界范围内关于汉语光杆名词性质的公论，引用量五千多次——这在理论语言学界是了不得的引用量。而汉语光杆名词的性质是基础问题，非常重要，决定了后续很多研究的思路。我的观点和他相反，不知道能不能受到学界公认，期待大家阅读批评指正。</p>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="wb-act">一个偶然的问题：肺部吸气音</h3>
+        <p>2026年，幸得国家社科基金青睐，获批项目“中国境内肺部吸气音的分布、功能及其扩散融合机制研究”。这个项目的起点，是读研究生时（在兰州大学）的一次聊天。</p>
+        <p>我和一位武威天祝的同门好友说话，她一边说，一边用肺部吸气——她说是表达她在认真听，类似于我们日常说话时的点头和“嗯”。后来我发现甘南的师姐说话也这样，但她们都没发现自己会这样，所谓习焉不察。</p>
+        <p>后来看文献，发现在宁夏固原话里，几乎每一个音节都可以用肺部吸气的方式说（闫淑琴 2002），并且表达很丰富的语用意义，比如夸张、主观大量／小量、增强对比等等。我和一位本科生于是在西北做了更大范围的调查，发现吸气音在西北广泛存在，尤其是甘肃、青海、陕西、宁夏等地——比如可以用吸气的方式读“20”，表示“大概20”的意思。</p>
+        <p>吸气音一般被认为起源于非洲，广泛分布在欧洲，甚至通过白令海峡传到了美洲，Science 杂志还有文章通过吸气音去考察人类的迁徙问题。那么，这种肺部吸气音为什么会在我国也有分布？分布在哪儿？和非洲、欧洲、美洲的吸气音是一回事儿吗？它有什么功能——目前欧洲的吸气音主要表达“yes/no”这类回应，或者表示“我在认真听，请继续”，和我同门的用法一样，而西北地区的吸气音功能要丰富得多。迁徙、扩散的路径又是怎样？是否反映了我们民族融合的进程？这些都是我关心的问题。</p>
+      </div>
+
+      <h2 class="wb-sub">联系方式</h2>
+      <dl class="wb-info">
+        <div>
+          <dt>通信地址</dt>
+          <dd>湖北省武汉市洪山区珞喻路1037号东五楼319，华中科技大学人文学院</dd>
+        </div>
+        <div>
+          <dt>邮政编码</dt>
+          <dd>430074</dd>
+        </div>
+        <div>
+          <dt>邮箱</dt>
+          <dd>暂不直接公开（防垃圾邮件），请通过<a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/more/2380104/jsjjgd/index.htm">校方主页个人简介</a>中的邮箱联系。</dd>
+        </div>
+      </dl>
+    </section>
+  </div>
+</section>
