@@ -1,25 +1,166 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
-<section class="panel" id="honors" aria-labelledby="title-honors"><div class="section-heading"><span>05</span><h2 id="title-honors">荣誉奖励</h2></div><div class="content"><section><h2>获奖信息</h2><ul>
-<li><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/4622.htm#hjxx">教育部2022年“推普助力乡村振兴”暑期社会实践优秀团队指导教师</a></li>
-</ul>
-<li><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/4622.htm#hjxx">教育部2023年“推普助力乡村振兴”暑期社会实践优秀团队指导教师</a></li>
-<ul>
-<li><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/5115.htm#hjxx">2022年华中科技大学学生“最满意课堂”（中国语文-自然语言与语言处理）</a></li>
-</ul>
-<ul>
-<li><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/4621.htm#hjxx">华中科技大学2022年度“我最喜爱的教师班主任”</a></li>
-</ul>
-<ul>
-<li><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/5016.htm#hjxx">华中科技大学2022年度“优秀教师班主任”</a></li>
-</ul>
-<ul>
-<li><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/5113.htm#hjxx">华中科技大学教学质量优秀奖二等奖</a></li>
-</ul>
-<ul>
-<li><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/5116.htm#hjxx">2023年华中科技大学“最满意课堂”（语法学）</a></li>
-</ul>
-</ul></section><section><h2>人才与其他荣誉</h2><ul>
-<li>2022年度“武汉英才·青年优秀人才”。</li>
-<li>华中科技大学2026年“五四”青年奖章（全校教工仅10人）。</li>
-<li>华中科技大学2025年本科教学成果二等奖（主持）。</li>
-</ul
+<section class="panel" id="honors" aria-labelledby="title-honors">
+  <div class="section-heading"><span>05</span><h2 id="title-honors">荣誉奖励</h2></div>
+
+  <div class="content">
+    <section class="hn-wrap">
+      <style>
+        /* ===== 05 荣誉奖励：年份列 + 奖项 + 授予单位（右对齐），仅作用于本面板 ===== */
+        .hn-wrap{
+          --hn-line:rgba(120,125,132,.2);
+          --hn-muted:#7d8b93;
+          --hn-accent:#16736f;      /* 与站点主色一致；改这一行即可整体换色 */
+          grid-column:1 / -1;
+          width:100%;
+        }
+
+        .hn-wrap .hn-sub{
+          display:flex; align-items:center; gap:.6rem;
+          margin:1.9rem 0 .35rem;
+          font-size:.95rem; font-weight:650; letter-spacing:.04em; line-height:1.5;
+        }
+        .hn-wrap .hn-sub:first-child{margin-top:.2rem;}
+        .hn-wrap .hn-sub::before{
+          content:""; width:3px; height:.95em; flex:none;
+          background:var(--hn-accent); border-radius:1px;
+        }
+        .hn-wrap .hn-sub::after{
+          content:""; flex:1; height:1px; background:var(--hn-line);
+        }
+
+        .hn-wrap .hn-list{list-style:none; margin:0; padding:0;}
+        .hn-wrap .hn-list > li{
+          display:grid;
+          grid-template-columns:4.2rem minmax(0,1fr) auto;
+          column-gap:1.1rem; align-items:baseline;
+          margin:0; padding:.62rem 0;
+          border-bottom:1px solid var(--hn-line);
+        }
+        .hn-wrap .hn-list > li:last-child{border-bottom:none; padding-bottom:.15rem;}
+
+        .hn-wrap .hn-year{
+          font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+          font-size:.78rem; line-height:1.7; letter-spacing:.02em;
+          color:var(--hn-accent); font-variant-numeric:tabular-nums;
+        }
+
+        .hn-wrap .hn-title{margin:0; font-size:.94rem; font-weight:500; line-height:1.65;}
+        .hn-wrap .hn-title a{
+          color:inherit; text-decoration:none;
+          border-bottom:1px solid transparent;
+          transition:color .18s ease, border-color .18s ease;
+        }
+        .hn-wrap .hn-title a:hover,
+        .hn-wrap .hn-title a:focus-visible{color:var(--hn-accent); border-bottom-color:currentColor;}
+
+        .hn-wrap .hn-sub2{margin:.18rem 0 0; font-size:.82rem; line-height:1.7; color:var(--hn-muted);}
+        .hn-wrap .hn-note{font-size:.85em; font-weight:400; color:var(--hn-muted);}
+
+        .hn-wrap .hn-org{
+          font-size:.76rem; line-height:1.7; letter-spacing:.02em;
+          color:var(--hn-muted); text-align:right; white-space:nowrap;
+        }
+        .hn-wrap .hn-org--key{color:var(--hn-accent); font-weight:600;}
+
+        @media (max-width:620px){
+          .hn-wrap .hn-list > li{
+            grid-template-columns:3.3rem minmax(0,1fr);
+            column-gap:.8rem; row-gap:.1rem;
+          }
+          .hn-wrap .hn-org{grid-column:2; justify-self:start; text-align:left;}
+          .hn-wrap .hn-title{font-size:.92rem;}
+        }
+      </style>
+
+      <h3 class="hn-sub">人才与重要荣誉</h3>
+      <ul class="hn-list">
+        <li>
+          <span class="hn-year">2026</span>
+          <div><p class="hn-title">“五四”青年奖章<span class="hn-note">（全校教工仅 10 人）</span></p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2025</span>
+          <div><p class="hn-title">湖北省青年教师教学竞赛优秀奖</p></div>
+          <span class="hn-org hn-org--key">湖北省</span>
+        </li>
+        <li>
+          <span class="hn-year">2023</span>
+          <div><p class="hn-title">教育部暑期“三下乡”社会实践优秀指导教师<span class="hn-note">（2/3）</span></p></div>
+          <span class="hn-org hn-org--key">教育部</span>
+        </li>
+        <li>
+          <span class="hn-year">2022</span>
+          <div><p class="hn-title"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/4622.htm#hjxx">“推普助力乡村振兴”暑期社会实践优秀团队指导教师</a><span class="hn-note">（1/3）</span></p></div>
+          <span class="hn-org hn-org--key">教育部</span>
+        </li>
+        <li>
+          <span class="hn-year">2022</span>
+          <div><p class="hn-title">“武汉英才 · 青年优秀人才”</p></div>
+          <span class="hn-org hn-org--key">武汉市</span>
+        </li>
+      </ul>
+
+      <h3 class="hn-sub">教学奖励</h3>
+      <ul class="hn-list">
+        <li>
+          <span class="hn-year">2025</span>
+          <div>
+            <p class="hn-title">本科教学成果二等奖<span class="hn-note">（主持）</span></p>
+            <p class="hn-sub2">多维融合，跨域协同：《中国语文》通识课智能化教学体系创新与全域应用</p>
+          </div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2025</span>
+          <div><p class="hn-title">优秀毕业设计指导教师</p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2024</span>
+          <div><p class="hn-title">教学竞赛二等奖</p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2024</span>
+          <div><p class="hn-title">教学质量优秀奖二等奖<span class="hn-note">（2022—2023 学年度）</span></p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2023</span>
+          <div><p class="hn-title"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/5116.htm#hjxx">学生“最满意课堂”</a><span class="hn-note">（语法学）</span></p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2022</span>
+          <div><p class="hn-title"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/5115.htm#hjxx">学生“最满意课堂”</a><span class="hn-note">（中国语文—自然语言与语言处理）</span></p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+      </ul>
+
+      <h3 class="hn-sub">育人与团学工作</h3>
+      <ul class="hn-list">
+        <li>
+          <span class="hn-year">2025</span>
+          <div><p class="hn-title">优秀共青团干部</p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2024</span>
+          <div><p class="hn-title">“三育人”积极分子</p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2022</span>
+          <div><p class="hn-title"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/4621.htm#hjxx">“我最喜爱的教师班主任”</a></p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+        <li>
+          <span class="hn-year">2022</span>
+          <div><p class="hn-title"><a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/hjxx/2380115/content/5016.htm#hjxx">“优秀教师班主任”</a></p></div>
+          <span class="hn-org">华中科技大学</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+</section>
