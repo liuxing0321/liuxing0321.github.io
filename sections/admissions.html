@@ -1,26 +1,126 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
-<section class="panel" id="admissions" aria-labelledby="title-admissions"><div class="section-heading"><span>04</span><h2 id="title-admissions">成员与招生</h2></div><div class="content"><section><h2>成员信息</h2><p>
-<li>2026级：牛梓宁         国际中文教育专业   博士研究生
-朱登伟         国际中文教育专业   硕士研究生
-沙马木各（彝族） 国际中文教育专业   硕士研究生
-陈宇歆         国际中文教育专业   硕士研究生</li>
-<li>2025级：王昊          语言学及应用语言学  硕士研究生
-李景姗         语言学及应用语言学  硕士研究生
-周子涵         语言学及应用语言学  硕士研究生
-甘丹彤         语言学及应用语言学  硕士研究生
-周莲           语言学及应用语言学  硕士研究生
-赵月卓         国际中文教育专业    硕士研究生
-肖婧璇         国际中文教育专业    硕士研究生
-彭畅           国际中文教育专业    硕士研究生<li>2
-</li>2024级：余佳玮         语言学及应用语言学  硕士研究生
-<li>苏元珺         语言学及应用语言学  硕士研究生
-<li>向宇涵         语言学及应用语言学  硕士研究生
-<li>房晓雪         国际中文教育专业    硕士研究生
-<li>杜广玉         国际中文教育专业    硕士研究生
-<li>陈思燊         国际中文教育专业    硕士研究生<li>
-</li>2023级：李娟鸿         语言学及应用语言学  硕士研究生（北京师范大学读博）
-<li>张李红         语言学及应用语言学  硕士研究生
-<li>彭瑞琪         国际中文教育专业    硕士研究生
-<li>黄劲           国际中文教育专业    硕士研究生
-<li>阮春龙（越南）   国际中文教育专业    硕士研究生<li>
-</p></section><section><h2>招生方向</h2><p>招收国际中文教育专业博士研究生，以及语言学及应用语言学学术硕士、国际中文教育专业硕士。对西北方言及肺部吸气音研究有兴趣的同学可关注相关研究。具体招生资格、计划和联系方法请以校方公告与<a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/more/2380104/jsjjgd/index.htm">教师个人简介</a>为准。</p></section></div></section>
+<section class="panel" id="admissions" aria-labelledby="title-admissions">
+  <style>
+    /* 仅作用于 #admissions 内部，不污染其他板块；可整段移到 <head> 的 <style> 里 */
+    #admissions .member-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin: 0.25rem 0 0;
+    }
+    #admissions .member-table col.col-name   { width: 27%; }
+    #admissions .member-table col.col-major  { width: 40%; }
+    #admissions .member-table col.col-degree { width: 33%; }
+
+    #admissions .member-table thead th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      padding: 0 0.7rem 0.5rem 0;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+
+    #admissions .member-table td {
+      padding: 0.5rem 0.7rem 0.5rem 0;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.16);
+      vertical-align: baseline;
+      word-break: break-word;
+    }
+    #admissions .member-table td:first-child { font-weight: 600; letter-spacing: 0.02em; }
+    #admissions .member-table td:last-child  { opacity: 0.72; font-size: 0.92em; }
+    #admissions .member-table .note          { font-size: 0.9em; opacity: 0.75; font-weight: 400; }
+
+    #admissions .member-table tr.cohort th {
+      text-align: left;
+      padding: 1.35rem 0 0.45rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.32);
+      color: inherit;
+    }
+    #admissions .member-table tr.cohort th::before {
+      content: "";
+      display: inline-block;
+      width: 6px; height: 6px;
+      margin-right: 0.5em;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.55;
+      vertical-align: 0.12em;
+    }
+
+    @media (max-width: 640px) {
+      #admissions .member-table { font-size: 0.88rem; }
+      #admissions .member-table col.col-name   { width: 30%; }
+      #admissions .member-table col.col-major  { width: 38%; }
+      #admissions .member-table col.col-degree { width: 32%; }
+      #admissions .member-table td,
+      #admissions .member-table thead th { padding-right: 0.45rem; }
+    }
+  </style>
+
+  <div class="section-heading"><span>04</span><h2 id="title-admissions">成员与招生</h2></div>
+
+  <div class="content">
+    <section>
+      <h2>成员信息</h2>
+      <table class="member-table">
+        <colgroup>
+          <col class="col-name" />
+          <col class="col-major" />
+          <col class="col-degree" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">姓名</th>
+            <th scope="col">专业</th>
+            <th scope="col">层次 / 去向</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cohort"><th colspan="3" scope="colgroup">2026级</th></tr>
+          <tr><td>牛梓宁</td><td>国际中文教育</td><td>博士研究生</td></tr>
+          <tr><td>朱登伟</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>沙马木各<span class="note">（彝族）</span></td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>陈宇歆</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+
+          <tr class="cohort"><th colspan="3" scope="colgroup">2025级</th></tr>
+          <tr><td>王昊</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>李景姗</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>周子涵</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>甘丹彤</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>周莲</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>赵月卓</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>肖婧璇</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>彭畅</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+
+          <tr class="cohort"><th colspan="3" scope="colgroup">2024级</th></tr>
+          <tr><td>余佳玮</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>苏元珺</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>向宇涵</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>房晓雪</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>杜广玉</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>陈思燊</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+
+          <tr class="cohort"><th colspan="3" scope="colgroup">2023级</th></tr>
+          <tr><td>李娟鸿</td><td>语言学及应用语言学</td><td>硕士研究生<span class="note">（北京师范大学读博）</span></td></tr>
+          <tr><td>张李红</td><td>语言学及应用语言学</td><td>硕士研究生</td></tr>
+          <tr><td>彭瑞琪</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>黄劲</td><td>国际中文教育</td><td>硕士研究生</td></tr>
+          <tr><td>阮春龙<span class="note">（越南）</span></td><td>国际中文教育</td><td>硕士研究生</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>招生方向</h2>
+      <p>招收国际中文教育专业博士研究生，以及语言学及应用语言学学术硕士、国际中文教育专业硕士。对西北方言及肺部吸气音研究有兴趣的同学可关注相关研究。具体招生资格、计划和联系方法请以校方公告与<a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/more/2380104/jsjjgd/index.htm">教师个人简介</a>为准。</p>
+    </section>
+  </div>
+</section>
