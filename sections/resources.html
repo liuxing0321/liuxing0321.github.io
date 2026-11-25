@@ -1,85 +1,23 @@
 <!-- ============================================================
-     01 个人简介
-     用法：整块替换原 #about 面板。
-     .wb-* 样式与 02 学术成果 / 05 荣誉奖励 为同一套；
-     若页面里已粘贴过那两段，本段的 <style> 可直接跳过（规则完全兼容）。
+     01 学术故事（原 01 个人简介面板的精简版：只保留学术故事）
+     用法：整块替换原 #about / 01 个人简介面板。
      ============================================================ -->
 <style>
-  /* ===== 履历板块通用样式（wb-*）：只依赖当前文字颜色，明暗主题通用 ===== */
+  /* ===== 阅读区：宋体正文，与履历类板块的表格排版形成对比 ===== */
   .wb-wrap{
     --wb-accent:#1b3a57;
     --wb-accent-soft:rgba(27,58,87,.07);
     --wb-line:rgba(120,125,132,.22);
     --wb-meta:#6f757c;
-    --wb-key-bg:#1b3a57;
-    --wb-key-fg:#ffffff;
     grid-column:1 / -1;
     width:100%;
   }
 
-  .wb-wrap .wb-sub{
-    display:flex; align-items:center; gap:.55rem;
-    margin:2.2rem 0 .85rem; padding-bottom:.5rem;
-    font-size:1.02rem; font-weight:600; letter-spacing:.05em; line-height:1.4;
-    border-bottom:1px solid var(--wb-line);
-  }
-  .wb-wrap > .wb-sub:first-child{margin-top:0;}
-  .wb-wrap .wb-sub::before{
-    content:""; width:3px; height:1.05em; flex:none;
-    background:var(--wb-accent); border-radius:2px;
-  }
-
-  .wb-wrap .wb-lede{
-    margin:.2rem 0 0; font-size:1.02rem; line-height:1.95; letter-spacing:.01em;
-    text-align:justify; text-justify:inter-ideograph;
-  }
-  .wb-wrap .wb-text{
-    margin:.15rem 0 0; font-size:.95rem; line-height:1.9;
-    text-align:justify; text-justify:inter-ideograph;
-  }
-
-  /* 研究方向：三栏并列 */
-  .wb-wrap .wb-dirs{
-    list-style:none; margin:0; padding:0;
-    display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
-    border-bottom:1px solid var(--wb-line);
-  }
-  .wb-wrap .wb-dirs > li{
-    padding:.9rem 1rem .9rem 1.1rem; border-right:1px solid var(--wb-line);
-    font-size:.93rem; font-weight:500; line-height:1.7;
-  }
-  .wb-wrap .wb-dirs > li:first-child{padding-left:0;}
-  .wb-wrap .wb-dirs > li:last-child{border-right:none; padding-right:0;}
-  .wb-wrap .wb-dirs > li > span{
-    display:block; margin-bottom:.32rem;
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-    font-size:.72rem; letter-spacing:.08em; color:var(--wb-accent);
-  }
-
-  /* 履历：日期列 + 内容 */
-  .wb-wrap .wb-list{list-style:none; margin:0; padding:0;}
-  .wb-wrap .wb-list > li{
-    display:grid; grid-template-columns:4.2rem minmax(0,1fr);
-    column-gap:.9rem; padding:.6rem 0; border-bottom:1px solid var(--wb-line);
-  }
-  .wb-wrap .wb-list > li:last-child{border-bottom:none;}
-  .wb-wrap .wb-list.timeline > li{grid-template-columns:8.2rem minmax(0,1fr);}
-
-  .wb-wrap .wb-year{
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-    font-size:.78rem; line-height:1.9; letter-spacing:.01em;
-    color:var(--wb-accent); font-variant-numeric:tabular-nums; white-space:nowrap;
-  }
-
-  .wb-wrap .wb-title{margin:0; font-size:.94rem; font-weight:500; line-height:1.65;}
-  .wb-wrap .wb-meta{margin:.25rem 0 0; font-size:.82rem; line-height:1.65; color:var(--wb-meta);}
-
-
-  /* ===== 学术故事：正文改用宋体，与履历的表格化排版形成“阅读区” ===== */
   .wb-wrap .wb-story-lede{
-    margin:0 0 1.5rem; padding:0 0 1rem;
+    margin:0 0 1.6rem; padding:0 0 1rem;
     border-bottom:1px solid var(--wb-line);
     font-size:.94rem; line-height:1.95; color:var(--wb-meta);
+    text-align:justify; text-justify:inter-ideograph;
   }
   .wb-wrap .wb-story p{
     margin:0 0 .95em; font-size:.95rem; line-height:2; letter-spacing:.01em;
@@ -122,105 +60,24 @@
   }
   .wb-wrap .wb-works p{margin-bottom:.5em; font-size:.93rem; line-height:1.95;}
 
-  /* 联系方式：标签 + 值 */
-  .wb-wrap .wb-info{margin:0; padding:0; display:grid; gap:.45rem;}
-  .wb-wrap .wb-info > div{
-    display:grid; grid-template-columns:5rem minmax(0,1fr); gap:.9rem;
-    font-size:.9rem; line-height:1.8;
-  }
-  .wb-wrap .wb-info dt{color:var(--wb-meta); font-size:.85rem; letter-spacing:.02em;}
-  .wb-wrap .wb-info dd{margin:0;}
-  .wb-wrap .wb-info a{
-    color:var(--wb-accent); text-decoration:none;
-    border-bottom:1px solid var(--wb-accent-soft);
-    transition:border-color .18s ease;
-  }
-  .wb-wrap .wb-info a:hover{border-bottom-color:currentColor;}
-
-  @media (max-width:700px){
-    .wb-wrap .wb-dirs{grid-template-columns:minmax(0,1fr);}
-    .wb-wrap .wb-dirs > li{border-right:none; padding:.75rem 0; border-bottom:1px solid var(--wb-line);}
-    .wb-wrap .wb-dirs > li:last-child{border-bottom:none;}
-    .wb-wrap .wb-dirs > li > span{margin-bottom:.2rem;}
-  }
   @media (max-width:560px){
-    .wb-wrap .wb-list.timeline > li{grid-template-columns:7.2rem minmax(0,1fr); column-gap:.65rem;}
-    .wb-wrap .wb-year{font-size:.74rem;}
-    .wb-wrap .wb-lede{font-size:.96rem;}
-    .wb-wrap .wb-info > div{grid-template-columns:4.2rem minmax(0,1fr); gap:.6rem;}
+    .wb-wrap .wb-story p{font-size:.93rem; line-height:1.95;}
+    .wb-wrap .wb-works > li{grid-template-columns:1.6rem minmax(0,1fr); column-gap:.5rem;}
   }
   @media (prefers-color-scheme:dark){
     .wb-wrap{
       --wb-accent:#8fb6d6; --wb-accent-soft:rgba(143,182,214,.12);
       --wb-line:rgba(210,215,222,.18); --wb-meta:#98a1ab;
-      --wb-key-bg:#8fb6d6; --wb-key-fg:#12212e;
     }
   }
 </style>
 
 
 <section class="panel" id="about" aria-labelledby="title-about">
-  <div class="section-heading"><span>01</span><h2 id="title-about">个人简介</h2></div>
+  <div class="section-heading"><span>01</span><h2 id="title-about">学术故事</h2></div>
 
   <div class="content">
     <section class="wb-wrap">
-
-      <p class="wb-lede">刘星，浙江大学语言学及应用语言学博士，现任华中科技大学人文学院副教授，博士生导师，院长助理，2022年“武汉英才·青年优秀人才”。目前主要研究的领域是汉语语法，以第一作者身份在 Journal of Chinese Linguistics,《当代语言学》《世界汉语教学》《外国语》《语言科学》等国际、国内核心期刊发表论文十余篇，主持2022年教育部社科基金青年项目（已结项）和2026年国家社科基金项目（在研）和校级自主创新基金项目、本科教学改革重点项目、研究生教改项目等，获2026年华中科技大学“五四”青年奖章（全校教工仅十人），校教学成果二等奖（主持）和教学质量优秀二等奖等奖项，所授课程中三门（《中国语文》《语法学》《现代汉语》）获得华中科技大学“学生最满意课堂”。</p>
-
-      <h2 class="wb-sub">研究方向</h2>
-      <ul class="wb-dirs">
-        <li><span>01</span>国际中文教育</li>
-        <li><span>02</span>形式语言学和类型学框架下的普通话与方言研究</li>
-        <li><span>03</span>语言接触研究，关注赣语和西北方言</li>
-      </ul>
-
-      <h2 class="wb-sub">教育背景</h2>
-      <ul class="wb-list timeline">
-        <li>
-          <span class="wb-year">2017.09—2021.06</span>
-          <div>
-            <p class="wb-title">浙江大学</p>
-            <p class="wb-meta">语言学及应用语言学 · 文学博士学位</p>
-          </div>
-        </li>
-        <li>
-          <span class="wb-year">2014.09—2017.06</span>
-          <div>
-            <p class="wb-title">兰州大学</p>
-            <p class="wb-meta">硕士研究生</p>
-          </div>
-        </li>
-        <li>
-          <span class="wb-year">2010.08—2014.06</span>
-          <div>
-            <p class="wb-title">兰州大学</p>
-            <p class="wb-meta">本科</p>
-          </div>
-        </li>
-      </ul>
-
-      <h2 class="wb-sub">工作经历</h2>
-      <ul class="wb-list timeline">
-        <li>
-          <span class="wb-year">2025.02—至今</span>
-          <div>
-            <p class="wb-title">华中科技大学</p>
-            <p class="wb-meta">人文学院 · 副教授</p>
-          </div>
-        </li>
-        <li>
-          <span class="wb-year">2021.07—2025.02</span>
-          <div>
-            <p class="wb-title">华中科技大学</p>
-            <p class="wb-meta">人文学院中文系 · 讲师</p>
-          </div>
-        </li>
-      </ul>
-
-      <h2 class="wb-sub">科研与教学</h2>
-      <p class="wb-text">研究涉及名词的数与指称、复数与量词、方言语法及语言交互性。论文发表于 Journal of Chinese Linguistics、《当代语言学》《世界汉语教学》《外国语》《语言科学》等期刊。项目、论文和著作详见“学术成果”，教学与奖励详见相应栏目。</p>
-
-      <h2 class="wb-sub">学术故事</h2>
       <div class="wb-story">
         <p class="wb-story-lede">1992年生，江西省宜春市袁州区人。研究专长为汉语和方言（赣语、西北方言）的语法研究，尤其喜欢寻找日常语言规律，发现特殊语言现象并加以解释。</p>
         <p>曾接受功能语言学（硕士）和形式语言学（博士）两套学术训练，相信它们只是看到了语言的不同侧面，关注不同的研究问题，没有高低之分，甚至可以互相印证。以研究问题为纲，不拘泥研究方法。</p>
@@ -276,22 +133,6 @@
         <p>后来看文献，发现在宁夏固原话里，几乎每一个音节都可以用肺部吸气的方式说（闫淑琴 2002），并且表达很丰富的语用意义，比如夸张、主观大量／小量、增强对比等等。我和一位本科生于是在西北做了更大范围的调查，发现吸气音在西北广泛存在，尤其是甘肃、青海、陕西、宁夏等地——比如可以用吸气的方式读“20”，表示“大概20”的意思。</p>
         <p>吸气音一般被认为起源于非洲，广泛分布在欧洲，甚至通过白令海峡传到了美洲，Science 杂志还有文章通过吸气音去考察人类的迁徙问题。那么，这种肺部吸气音为什么会在我国也有分布？分布在哪儿？和非洲、欧洲、美洲的吸气音是一回事儿吗？它有什么功能——目前欧洲的吸气音主要表达“yes/no”这类回应，或者表示“我在认真听，请继续”，和我同门的用法一样，而西北地区的吸气音功能要丰富得多。迁徙、扩散的路径又是怎样？是否反映了我们民族融合的进程？这些都是我关心的问题。</p>
       </div>
-
-      <h2 class="wb-sub">联系方式</h2>
-      <dl class="wb-info">
-        <div>
-          <dt>通信地址</dt>
-          <dd>湖北省武汉市洪山区珞喻路1037号东五楼319，华中科技大学人文学院</dd>
-        </div>
-        <div>
-          <dt>邮政编码</dt>
-          <dd>430074</dd>
-        </div>
-        <div>
-          <dt>邮箱</dt>
-          <dd>暂不直接公开（防垃圾邮件），请通过<a href="http://faculty.hust.edu.cn/liuxing123/zh_CN/more/2380104/jsjjgd/index.htm">校方主页个人简介</a>中的邮箱联系。</dd>
-        </div>
-      </dl>
     </section>
   </div>
 </section>
