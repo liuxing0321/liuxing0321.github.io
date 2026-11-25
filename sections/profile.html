@@ -1,11 +1,18 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
 <style>
-  /* ===== 侧边栏：蓝色主题 + 正文宋体，只作用于 .profile 内部 ===== */
+  /* ===== 侧边栏：深墨蓝底 + 浅色文字 + 正文宋体 =====
+     改底色只需改下面 background 的色值；文字色变量会跟着协调。 */
+  [data-include="sections/profile.html"]{
+    background:#16283A;
+    padding:24px 20px;
+    border-radius:6px;
+  }
+
   .profile{
-    --pf-accent:#1b3a57;
-    --pf-accent-soft:rgba(27,58,87,.075);
-    --pf-line:rgba(27,58,87,.16);
-    --pf-muted:#6f757c;
+    --pf-accent:#D7E6F2;
+    --pf-accent-soft:rgba(255,255,255,.08);
+    --pf-line:rgba(255,255,255,.18);
+    --pf-muted:#A9B6C0;
     /* 正文宋体：与 01 / 02 / 03 / 04 / 05 / 06 / 07 同一字体栈 */
     --pf-serif:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
   }
@@ -13,7 +20,7 @@
   .profile .photo{
     background:var(--pf-accent-soft);
     border:1px solid var(--pf-line);
-    box-shadow:0 6px 18px rgba(27,58,87,.09);
+    box-shadow:0 6px 18px rgba(0,0,0,.22);
   }
 
   /* 姓名与单位用宋体；罗马字、职称标签仍为等宽/黑体，保住层级 */
@@ -57,19 +64,12 @@
     border-bottom:1px solid var(--pf-line);
   }
   .profile .source-link:hover{
-    color:#0f2a42;
+    color:#FFFFFF;
     border-bottom-color:currentColor;
   }
 
-  @media (prefers-color-scheme:dark){
-    .profile{
-      --pf-accent:#9fc0dc;
-      --pf-accent-soft:rgba(159,192,220,.12);
-      --pf-line:rgba(190,205,220,.24);
-      --pf-muted:#a2acb6;
-    }
-    .profile .photo{box-shadow:none;}
-    .profile .source-link:hover{color:#c7dced;}
+  @media (max-width:740px){
+    [data-include="sections/profile.html"]{padding:18px 16px;}
   }
 </style>
 
