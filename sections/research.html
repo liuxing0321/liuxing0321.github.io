@@ -1,8 +1,7 @@
 <!-- ============================================================
-     02 学术成果  +  05 荣誉奖励
-     用法：整块粘贴进站点页面中「02」与「05」原来的位置，替换旧内容。
-     .wb-* 样式在此处出现一次，紧随其后的两个 section 共用。
-     05 面板的 id 若原文件用的是 #awards，请把下面的 #honors 改回。
+     02 学术成果
+     本文件只含 02 面板。05 荣誉奖励在 sections/honors.html，
+     不要在本文件里再放一份，否则页面会出现两个「05 荣誉奖励」。
      ============================================================ -->
 <style>
   /* ===== 履历板块通用样式（wb-*）：只依赖当前文字颜色，明暗主题通用 ===== */
@@ -13,6 +12,8 @@
     --wb-meta:#6f757c;
     --wb-key-bg:#1b3a57;
     --wb-key-fg:#ffffff;
+    /* 正文宋体：与 01 个人简介 / 06 学术故事正文同一字体栈 */
+    --wb-serif:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
     grid-column:1 / -1;               /* 若 .content 是栅格，则横跨整行 */
     width:100%;
   }
@@ -28,6 +29,11 @@
     content:""; width:3px; height:1.05em; flex:none;
     background:var(--wb-accent); border-radius:2px;
   }
+
+  /* 换字体；标签、方向小标题、年份、节标题仍用无衬线/等宽，保住层级 */
+  .wb-wrap .wb-title,
+  .wb-wrap .wb-meta,
+  .wb-wrap .wb-book-meta{font-family:var(--wb-serif);}
 
   .wb-wrap .wb-dir{
     display:flex; align-items:baseline; gap:.5rem;
@@ -45,10 +51,6 @@
   }
   .wb-wrap .wb-list > li:last-child{border-bottom:none;}
   .wb-wrap .wb-list.flow > li{grid-template-columns:minmax(0,1fr); padding:.62rem 0;}
-  .wb-wrap .wb-list.compact > li{align-items:baseline; padding:.55rem 0;}
-  .wb-wrap .wb-list.compact .wb-year{line-height:1.65;}
-  .wb-wrap .wb-list.compact .wb-title{margin:0;}
-  .wb-wrap .wb-list.compact .wb-tag{margin:0 0 0 .5rem;}
 
   .wb-wrap .wb-year{
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -56,7 +58,7 @@
     color:var(--wb-accent); font-variant-numeric:tabular-nums;
   }
 
-  .wb-wrap .wb-title{margin:0; font-size:.94rem; font-weight:500; line-height:1.65;}
+  .wb-wrap .wb-title{margin:0; font-size:.96rem; font-weight:500; line-height:1.7;}
   .wb-wrap .wb-title a{
     color:inherit; text-decoration:none; border-bottom:1px solid transparent;
     transition:color .18s ease, border-color .18s ease;
@@ -64,7 +66,7 @@
   .wb-wrap .wb-title a:hover,
   .wb-wrap .wb-title a:focus-visible{color:var(--wb-accent); border-bottom-color:currentColor;}
 
-  .wb-wrap .wb-meta{margin:.28rem 0 0; font-size:.82rem; line-height:1.65; color:var(--wb-meta);}
+  .wb-wrap .wb-meta{margin:.28rem 0 0; font-size:.85rem; line-height:1.65; color:var(--wb-meta);}
 
   .wb-wrap .wb-tag{
     display:inline-block; margin-right:.45rem; padding:.02rem .4rem;
@@ -80,7 +82,7 @@
   }
   .wb-wrap .wb-book-title{
     margin:0; font-size:1rem; font-weight:600; line-height:1.65; letter-spacing:.01em;
-    font-family:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
+    font-family:var(--wb-serif);
   }
   .wb-wrap .wb-book-title a{
     color:inherit; text-decoration:none; border-bottom:1px solid transparent;
@@ -88,12 +90,12 @@
   }
   .wb-wrap .wb-book-title a:hover,
   .wb-wrap .wb-book-title a:focus-visible{color:var(--wb-accent); border-bottom-color:currentColor;}
-  .wb-wrap .wb-book-meta{margin:.4rem 0 0; font-size:.83rem; color:var(--wb-meta);}
+  .wb-wrap .wb-book-meta{margin:.4rem 0 0; font-size:.85rem; color:var(--wb-meta);}
   .wb-wrap .wb-note{font-size:.84em; font-weight:400; color:var(--wb-meta);}
 
   @media (max-width:560px){
     .wb-wrap .wb-list > li{grid-template-columns:3.4rem minmax(0,1fr); column-gap:.65rem;}
-    .wb-wrap .wb-title{font-size:.92rem;}
+    .wb-wrap .wb-title{font-size:.93rem;}
   }
   @media (prefers-color-scheme:dark){
     .wb-wrap{
@@ -247,4 +249,3 @@
     </section>
   </div>
 </section>
-
