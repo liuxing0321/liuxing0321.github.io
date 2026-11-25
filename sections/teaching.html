@@ -1,7 +1,146 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
-<section class="panel" id="teaching" aria-labelledby="title-teaching"><div class="section-heading"><span>03</span><h2 id="title-teaching">教学与学生培养</h2></div><div class="content"><section><h2>主要授课课程</h2><ul>
-<li>中国语文。</li>
-<li>语法学。</li>
-<li>现代汉语。</li>
-<li>中国语言的传统、当下与未来（与齐晓燕老师合作开设）</li>
+<section class="panel" id="teaching" aria-labelledby="title-teaching">
+  <div class="section-heading"><span>03</span><h2 id="title-teaching">教学与学生培养</h2></div>
 
+  <div class="content">
+    <section class="tc-wrap">
+      <style>
+        /* ===== 03 教学与学生培养：课程卡片 + 培养工作，仅作用于本面板 ===== */
+        .tc-wrap{
+          --tc-line:#e1e7e8;
+          --tc-muted:#647580;
+          --tc-accent:#16736f;
+          --tc-accent-soft:rgba(22,115,111,.10);
+          --tc-grey-soft:rgba(100,117,128,.10);
+          grid-column:1 / -1;
+          width:100%;
+        }
+
+        .tc-wrap .tc-lede{
+          margin:0 0 4px; font-size:15px; line-height:1.95; color:var(--tc-muted);
+          text-align:justify; text-justify:inter-ideograph;
+        }
+
+        /* --- 课程卡片 --- */
+        .tc-wrap .tc-grid{
+          list-style:none; margin:0; padding:0;
+          display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px;
+        }
+        .tc-wrap .tc-card{
+          display:grid; grid-template-columns:1.7rem minmax(0,1fr);
+          align-items:baseline; column-gap:12px; row-gap:7px;
+          margin:0; padding:13px 18px 14px;
+          border:1px solid var(--tc-line); border-radius:5px;
+          background:#fff;
+          transition:border-color .2s ease, background-color .2s ease;
+        }
+        .tc-wrap .tc-card:hover{border-color:rgba(22,115,111,.38); background:#fbfcfb;}
+
+        .tc-wrap .tc-num{
+          grid-column:1; grid-row:1;
+          font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+          font-size:11px; line-height:1.6; letter-spacing:.14em;
+          color:#9aa8ab;
+        }
+        .tc-wrap .tc-name{
+          grid-column:2; grid-row:1;
+          margin:0; font-size:16px; font-weight:600; line-height:1.6;
+          letter-spacing:.01em; color:#193244;
+        }
+        .tc-wrap .tc-badges{
+          grid-column:2; grid-row:2;
+          display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;
+        }
+        .tc-wrap .tc-badge{
+          display:inline-flex; align-items:center; gap:5px;
+          padding:2px 7px 3px; border-radius:3px;
+          font-size:11px; line-height:1.6; letter-spacing:.01em;
+          white-space:nowrap;
+        }
+        .tc-wrap .tc-badge--award{
+          color:#14655f; background:var(--tc-accent-soft); font-weight:600;
+        }
+        .tc-wrap .tc-badge--award::before{
+          content:""; width:4px; height:4px; border-radius:50%;
+          background:currentColor; opacity:.8;
+        }
+        .tc-wrap .tc-badge--collab{
+          color:#5f6b70; background:var(--tc-grey-soft); font-weight:400;
+        }
+
+        /* --- 学生培养：类别 + 事实 --- */
+        .tc-wrap .tc-rows{
+          list-style:none; margin:0; padding:0;
+          border-top:1px solid var(--tc-line);
+        }
+        .tc-wrap .tc-rows > li{
+          display:grid; grid-template-columns:5.6rem minmax(0,1fr);
+          column-gap:1.1rem; align-items:baseline;
+          margin:0; padding:11px 0 12px;
+          border-bottom:1px solid var(--tc-line);
+          font-size:14.5px; line-height:1.8;
+        }
+        .tc-wrap .tc-rows > li:last-child{border-bottom:none;}
+        .tc-wrap .tc-rows > li > span{
+          font-size:12.5px; letter-spacing:.04em; color:var(--tc-muted);
+        }
+
+        .tc-wrap .tc-note{
+          margin:18px 0 0; font-size:13px; line-height:1.85; color:var(--tc-muted);
+        }
+        .tc-wrap .tc-note a{color:var(--tc-accent); text-decoration:none; border-bottom:1px solid rgba(22,115,111,.28);}
+        .tc-wrap .tc-note a:hover{border-bottom-color:currentColor;}
+
+        @media (max-width:720px){
+          .tc-wrap .tc-grid{grid-template-columns:minmax(0,1fr); gap:11px;}
+          .tc-wrap .tc-card{padding:12px 15px 13px; column-gap:10px;}
+          .tc-wrap .tc-rows > li{grid-template-columns:4.6rem minmax(0,1fr); column-gap:.8rem; font-size:14px;}
+        }
+      </style>
+
+      <p class="tc-lede">承担本科生与研究生课程教学，兼及本科生班主任与毕业设计指导。其中三门课程获评华中科技大学“学生最满意课堂”。</p>
+
+      <h2>主要授课课程</h2>
+      <ul class="tc-grid">
+        <li class="tc-card">
+          <span class="tc-num">01</span>
+          <p class="tc-name">中国语文</p>
+          <p class="tc-badges"><span class="tc-badge tc-badge--award">学生最满意课堂 · 2022</span></p>
+        </li>
+        <li class="tc-card">
+          <span class="tc-num">02</span>
+          <p class="tc-name">语法学</p>
+          <p class="tc-badges"><span class="tc-badge tc-badge--award">学生最满意课堂 · 2023</span></p>
+        </li>
+        <li class="tc-card">
+          <span class="tc-num">03</span>
+          <p class="tc-name">现代汉语</p>
+          <p class="tc-badges"><span class="tc-badge tc-badge--award">学生最满意课堂 · 2024</span></p>
+        </li>
+        <li class="tc-card">
+          <span class="tc-num">04</span>
+          <p class="tc-name">中国语言的传统、当下与未来</p>
+          <p class="tc-badges"><span class="tc-badge tc-badge--collab">与齐晓燕老师合作开设</span></p>
+        </li>
+      </ul>
+
+      <h2>学生培养</h2>
+      <ul class="tc-rows">
+        <li>
+          <span>班主任工作</span>
+          <div>2022 年度校级“我最喜爱的教师班主任”“优秀教师班主任”</div>
+        </li>
+        <li>
+          <span>毕业设计</span>
+          <div>2025 年优秀毕业设计指导教师</div>
+        </li>
+        <li>
+          <span>团学工作</span>
+          <div>2025 年优秀共青团干部</div>
+        </li>
+      </ul>
+
+      <p class="tc-note">以上均为华中科技大学校级评定。教学改革项目（本科教改重点项目、研究生教改项目等）见<a href="#research">学术成果</a>，教学类获奖详见<a href="#honors">荣誉奖励</a>。</p>
+    </section>
+  </div>
+</section>
