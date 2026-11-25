@@ -1,3 +1,109 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
-<section class="panel" id="activities" aria-labelledby="title-activities"><div class="section-heading"><span>07</span><h2 id="title-activities">学术活动</h2></div><div class="content"><section><h2>学术活动</h2><p></p></section></div></section>
+<section class="panel" id="activities" aria-labelledby="title-activities">
+  <div class="section-heading"><span>07</span><h2 id="title-activities">学术活动</h2></div>
 
+  <div class="content">
+    <section class="ac-wrap">
+      <style>
+        /* ===== 07 学术活动：同行评议，仅作用于本面板 ===== */
+        .ac-wrap{
+          --ac-line:#e1e7e8;
+          --ac-muted:#647580;
+          --ac-accent:#16736f;
+          --ac-serif:"Songti SC","Noto Serif CJK SC",STSong,SimSun,serif;
+          grid-column:1 / -1;
+          width:100%;
+        }
+
+        .ac-wrap .ac-lede{
+          margin:0 0 2px; font-size:15px; line-height:1.95; color:var(--ac-muted);
+          text-align:justify; text-justify:inter-ideograph;
+          text-wrap:pretty;
+        }
+
+        .ac-wrap .ac-h{
+          margin:26px 0 12px; padding:0; border:0;
+          font-size:1.05rem; font-weight:600; letter-spacing:.04em; line-height:1.5;
+          color:#193244;
+        }
+
+        /* --- 期刊外审：两列目录式排列 --- */
+        .ac-wrap .ac-journals{
+          list-style:none; margin:0; padding:0;
+          display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+          column-gap:2.8rem;
+          border-bottom:1px solid var(--ac-line);
+        }
+        .ac-wrap .ac-journals > li{
+          position:relative;
+          margin:0; padding:.72rem 0 .72rem 15px;
+          border-top:1px solid var(--ac-line);
+          font-family:var(--ac-serif);
+          font-size:16.5px; line-height:1.55; letter-spacing:.015em;
+          color:#20323c;
+        }
+        .ac-wrap .ac-journals > li::before{
+          content:""; position:absolute; left:0; top:.86em; bottom:.86em;
+          width:2px; border-radius:1px;
+          background:rgba(22,115,111,.45);
+          transition:background-color .2s ease;
+        }
+        .ac-wrap .ac-journals > li:hover::before{background:var(--ac-accent);}
+
+        /* --- 学位论文评审：标签 + 事实 --- */
+        .ac-wrap .ac-rows{
+          list-style:none; margin:0; padding:0;
+        }
+        .ac-wrap .ac-rows > li{
+          display:grid; grid-template-columns:4.7rem minmax(0,1fr);
+          column-gap:1.1rem; align-items:baseline;
+          margin:0; padding:11px 0 12px;
+          border-top:1px solid var(--ac-line);
+          font-size:14.5px; line-height:1.8;
+        }
+        .ac-wrap .ac-rows > li > span{
+          font-size:12.5px; letter-spacing:.04em; color:var(--ac-muted);
+        }
+
+        .ac-wrap .ac-note{
+          margin:18px 0 0; font-size:13px; line-height:1.85; color:var(--ac-muted);
+          text-wrap:pretty;
+        }
+        .ac-wrap .ac-note a{
+          color:var(--ac-accent); text-decoration:none;
+          border-bottom:1px solid rgba(22,115,111,.28);
+        }
+        .ac-wrap .ac-note a:hover{border-bottom-color:currentColor;}
+
+        @media (max-width:720px){
+          .ac-wrap .ac-h{margin:22px 0 10px;}
+          .ac-wrap .ac-journals{grid-template-columns:minmax(0,1fr); column-gap:0;}
+          .ac-wrap .ac-journals > li{font-size:16px; padding:.64rem 0 .64rem 13px;}
+          .ac-wrap .ac-rows > li{grid-template-columns:4.1rem minmax(0,1fr); column-gap:.75rem; font-size:14px;}
+        }
+      </style>
+
+      <p class="ac-lede">参与学术共同体的同行评议，担任六家专业期刊外审专家，并承担教育部平台硕士学位论文评审。</p>
+
+      <h2 class="ac-h">期刊外审专家</h2>
+      <ul class="ac-journals">
+        <li>《世界汉语教学》</li>
+        <li>《汉语学报》</li>
+        <li>《中国语文通讯》</li>
+        <li>《语言研究》</li>
+        <li>《语言学研究》</li>
+        <li>《汉语史与汉藏语研究》</li>
+      </ul>
+
+      <h2 class="ac-h">学位论文评审</h2>
+      <ul class="ac-rows">
+        <li>
+          <span>教育部平台</span>
+          <div>硕士学位论文外审专家</div>
+        </li>
+      </ul>
+
+      <p class="ac-note">教学与人才培养情况见<a href="#teaching">教学与学生培养</a>，科研项目与成果见<a href="#research">学术成果</a>。</p>
+    </section>
+  </div>
+</section>
