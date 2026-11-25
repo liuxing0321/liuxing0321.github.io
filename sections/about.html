@@ -3,7 +3,9 @@
      用法：整块替换原 #about 面板。
      .wb-* 样式与 02 学术成果 / 05 荣誉奖励 为同一套；
      若页面里已粘贴过那两段，本段的 <style> 可直接跳过（规则完全兼容）。
-     本次改动只“新增”了 .wb-cols / .wb-stack 一组规则，未改动原有 wb-* 规则。
+     本次改动：① 教育背景 / 工作经历 两栏并排（.wb-cols / .wb-stack）；
+               ② 正文改用宋体栈 --wb-serif（与 06 学术故事正文一致）。
+     原有的 wb-* 规则未改动。
      ============================================================ -->
 <style>
   /* ===== 履历板块通用样式（wb-*）：只依赖当前文字颜色，明暗主题通用 ===== */
@@ -14,6 +16,8 @@
     --wb-meta:#6f757c;
     --wb-key-bg:#1b3a57;
     --wb-key-fg:#ffffff;
+    /* 正文宋体：与 06 学术故事正文同一字体栈 */
+    --wb-serif:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
     grid-column:1 / -1;
     width:100%;
   }
@@ -32,12 +36,20 @@
 
   .wb-wrap .wb-lede{
     margin:.2rem 0 0; font-size:1.02rem; line-height:1.95; letter-spacing:.01em;
-    text-align:justify; text-justify:inter-ideograph;
+    text-align:justify; text-justify:inter-ideograph; text-wrap:pretty;
   }
   .wb-wrap .wb-text{
     margin:.15rem 0 0; font-size:.95rem; line-height:1.9;
-    text-align:justify; text-justify:inter-ideograph;
+    text-align:justify; text-justify:inter-ideograph; text-wrap:pretty;
   }
+
+  /* 字号不变，只换字体；日期与节标题仍用无衬线/等宽，保住层级 */
+  .wb-wrap .wb-lede,
+  .wb-wrap .wb-text,
+  .wb-wrap .wb-dirs > li,
+  .wb-wrap .wb-where,
+  .wb-wrap .wb-what,
+  .wb-wrap .wb-info dd{font-family:var(--wb-serif);}
 
   /* 研究方向：三栏并列 */
   .wb-wrap .wb-dirs{
@@ -48,6 +60,7 @@
   .wb-wrap .wb-dirs > li{
     padding:.9rem 1rem .9rem 1.1rem; border-right:1px solid var(--wb-line);
     font-size:.93rem; font-weight:500; line-height:1.7;
+    text-wrap:balance;
   }
   .wb-wrap .wb-dirs > li:first-child{padding-left:0;}
   .wb-wrap .wb-dirs > li:last-child{border-right:none; padding-right:0;}
@@ -111,8 +124,8 @@
     font-size:.74rem; line-height:1.5; letter-spacing:.02em;
     color:var(--wb-accent); font-variant-numeric:tabular-nums; white-space:nowrap;
   }
-  .wb-wrap .wb-where{margin:0; font-size:.97rem; font-weight:600; line-height:1.6; letter-spacing:.01em;}
-  .wb-wrap .wb-what{margin:.16rem 0 0; font-size:.84rem; line-height:1.7; color:var(--wb-meta);}
+  .wb-wrap .wb-where{margin:0; font-size:.99rem; font-weight:600; line-height:1.6; letter-spacing:.01em;}
+  .wb-wrap .wb-what{margin:.16rem 0 0; font-size:.855rem; line-height:1.7; color:var(--wb-meta);}
 
   @media (max-width:700px){
     .wb-wrap .wb-dirs{grid-template-columns:minmax(0,1fr);}
