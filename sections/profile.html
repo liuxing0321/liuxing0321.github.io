@@ -1,2 +1,76 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
+<style>
+  /* ===== 侧边栏：蓝色主题 + 正文宋体，只作用于 .profile 内部 ===== */
+  .profile{
+    --pf-accent:#1b3a57;
+    --pf-accent-soft:rgba(27,58,87,.075);
+    --pf-line:rgba(27,58,87,.16);
+    --pf-muted:#6f757c;
+    /* 正文宋体：与 01 / 02 / 03 / 04 / 05 / 06 / 07 同一字体栈 */
+    --pf-serif:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
+  }
+
+  .profile .photo{
+    background:var(--pf-accent-soft);
+    border:1px solid var(--pf-line);
+    box-shadow:0 6px 18px rgba(27,58,87,.09);
+  }
+
+  /* 姓名与单位用宋体；罗马字、职称标签仍为等宽/黑体，保住层级 */
+  .profile .name{
+    font-family:var(--pf-serif);
+    color:var(--pf-accent);
+    font-weight:600;
+  }
+  .profile .roman{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    color:var(--pf-muted);
+    letter-spacing:.26em;
+  }
+  .profile .role{
+    color:var(--pf-accent);
+    font-weight:600;
+  }
+  .profile .role + .role{
+    color:var(--pf-muted);
+    font-weight:400;
+  }
+  .profile .uni{
+    font-family:var(--pf-serif);
+    color:var(--pf-muted);
+  }
+
+  .profile .tags span{
+    background:var(--pf-accent-soft);
+    color:var(--pf-accent);
+    border:1px solid var(--pf-line);
+  }
+
+  .profile .contact{border-top:1px solid var(--pf-line);}
+  .profile .contact p{
+    font-family:var(--pf-serif);
+    color:var(--pf-muted);
+  }
+
+  .profile .source-link{
+    color:var(--pf-accent);
+    border-bottom:1px solid var(--pf-line);
+  }
+  .profile .source-link:hover{
+    color:#0f2a42;
+    border-bottom-color:currentColor;
+  }
+
+  @media (prefers-color-scheme:dark){
+    .profile{
+      --pf-accent:#9fc0dc;
+      --pf-accent-soft:rgba(159,192,220,.12);
+      --pf-line:rgba(190,205,220,.24);
+      --pf-muted:#a2acb6;
+    }
+    .profile .photo{box-shadow:none;}
+    .profile .source-link:hover{color:#c7dced;}
+  }
+</style>
+
 <aside class="profile"><img class="photo" src="assets/images/liuxing.png" width="260" height="285" alt="刘星老师肖像"><h2 class="name">刘星</h2><p class="roman">LIU XING</p><p class="role">副教授 · 博士生导师</p><p class="role">硕士生导师</p><p class="uni">华中科技大学 · 人文学院</p><div class="tags"><span>汉语语法</span><span>方言研究</span><span>国际中文教育</span></div><div class="contact"><p>湖北省武汉市洪山区珞喻路1037号</p><p>邮政编码 430074</p><p>邮箱：liuxing423abc@163.com 联系方式请参阅校方主页。</p></div><a class="source-link" href="http://faculty.hust.edu.cn/liuxing123/zh_CN/index.htm" target="_blank" rel="noopener noreferrer">校方教师主页 ↗</a></aside>
