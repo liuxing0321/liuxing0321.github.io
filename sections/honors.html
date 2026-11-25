@@ -10,9 +10,16 @@
           --hn-line:rgba(120,125,132,.2);
           --hn-muted:#7d8b93;
           --hn-accent:#16736f;      /* 与站点主色一致；改这一行即可整体换色 */
+          /* 正文宋体：与 01 / 02 / 03 / 04 / 06 同一字体栈 */
+          --hn-serif:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif;
           grid-column:1 / -1;
           width:100%;
         }
+
+        /* 正文与授予单位换宋体；年份、分组标题保持等宽/无衬线 */
+        .hn-wrap .hn-title,
+        .hn-wrap .hn-sub2,
+        .hn-wrap .hn-org{font-family:var(--hn-serif);}
 
         .hn-wrap .hn-sub{
           display:flex; align-items:center; gap:.6rem;
@@ -44,7 +51,7 @@
           color:var(--hn-accent); font-variant-numeric:tabular-nums;
         }
 
-        .hn-wrap .hn-title{margin:0; font-size:.94rem; font-weight:500; line-height:1.65;}
+        .hn-wrap .hn-title{margin:0; font-size:.96rem; font-weight:500; line-height:1.7;}
         .hn-wrap .hn-title a{
           color:inherit; text-decoration:none;
           border-bottom:1px solid transparent;
@@ -53,11 +60,11 @@
         .hn-wrap .hn-title a:hover,
         .hn-wrap .hn-title a:focus-visible{color:var(--hn-accent); border-bottom-color:currentColor;}
 
-        .hn-wrap .hn-sub2{margin:.18rem 0 0; font-size:.82rem; line-height:1.7; color:var(--hn-muted);}
+        .hn-wrap .hn-sub2{margin:.18rem 0 0; font-size:.85rem; line-height:1.7; color:var(--hn-muted);}
         .hn-wrap .hn-note{font-size:.85em; font-weight:400; color:var(--hn-muted);}
 
         .hn-wrap .hn-org{
-          font-size:.76rem; line-height:1.7; letter-spacing:.02em;
+          font-size:.8rem; line-height:1.7; letter-spacing:.02em;
           color:var(--hn-muted); text-align:right; white-space:nowrap;
         }
         .hn-wrap .hn-org--key{color:var(--hn-accent); font-weight:600;}
