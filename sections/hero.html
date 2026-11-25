@@ -1,2 +1,53 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
-<div class="hero"><div class="eyebrow">LANGUAGE · GRAMMAR · DIALECTS</div><h1>从日常语言中，发现语法规律。</h1><div class="bar"></div><p>关注汉语与方言的语法现象，在形式语言学与类型学视野下，探索语言的结构、意义与接触。</p></div>
+<style>
+  /* ===== 顶部横幅：只作用于 .hero，覆盖 site.css 中的同名规则 =====
+     换色只需改 --hero-bg / --hero-glow 两个值，其余不用动。 */
+  #top .hero{
+    --hero-bg:#352c24;                       /* 底色：暖炭褐。备选：更偏栗红 #3f2a22 / 更偏灰 #3a352e / 更浅 #463a2e */
+    --hero-glow:rgba(205,158,96,.20);        /* 右上角暖光 */
+    padding:48px 52px 46px;
+    background:
+      radial-gradient(120% 140% at 88% 2%, var(--hero-glow) 0%, rgba(0,0,0,0) 62%),
+      var(--hero-bg);
+    color:#f2ebe0;
+    border-radius:6px;
+  }
+  #top .hero .eyebrow{
+    font-size:11px; font-weight:500; letter-spacing:.34em; color:#bda98b;
+  }
+  #top .hero h1{
+    margin:18px 0 0;
+    font-size:33px; font-weight:600; line-height:1.36; letter-spacing:.02em;
+    color:#f6f1e8;
+    text-wrap:balance;   /* 窄屏换行时两行等长，不留“律。”这样的孤字 */
+  }
+  #top .hero .bar{
+    width:52px; height:2px; margin:24px 0 20px;
+    background:#d3ac70; border-radius:1px;
+  }
+  #top .hero p{
+    max-width:42em; margin:0;
+    font-size:15.5px; line-height:1.95; letter-spacing:.01em;
+    color:#d8cdbb;
+    text-wrap:balance;   /* 万一需要换行，两行长度均衡，不留孤字 */
+  }
+
+  @media (max-width:1000px){
+    #top .hero{padding:40px 38px 38px;}
+    #top .hero h1{font-size:30px;}
+  }
+  @media (max-width:740px){
+    #top .hero{padding:30px 24px 28px; border-radius:5px;}
+    #top .hero h1{font-size:21px; line-height:1.5; margin-top:14px;}
+    #top .hero .bar{margin:18px 0 16px; width:44px;}
+    #top .hero p{font-size:14px; line-height:1.9;}
+    #top .hero .eyebrow{letter-spacing:.26em;}
+  }
+</style>
+
+<div class="hero">
+  <div class="eyebrow">LANGUAGE · GRAMMAR · DIALECTS</div>
+  <h1>从日常语言中，发现语法规律。</h1>
+  <div class="bar"></div>
+  <p>关注汉语与方言的语法现象，在形式语言学与类型学视野下，探索语言的结构、意义与接触。</p>
+</div>
