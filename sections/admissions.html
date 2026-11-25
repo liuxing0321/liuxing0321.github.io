@@ -1,13 +1,20 @@
 <!-- 修改本文件即可更新对应区域；请保留原有 id 和标签结构。 -->
 <section class="panel" id="admissions" aria-labelledby="title-admissions">
   <style>
+    /* 正文宋体：与 01 / 02 / 03 / 06 同一字体栈；表头、年级标题保持黑体 */
+    #admissions{ --ad-serif:"Songti SC","Noto Serif CJK SC","Noto Serif SC",STSong,"SimSun",serif; }
+    #admissions .member-table td{font-family:var(--ad-serif);}
+    #admissions .content p{
+      font-family:var(--ad-serif);
+      font-size:0.95rem; line-height:1.9; text-align:justify;
+    }
     /* 仅作用于 #admissions 内部，不污染其他板块；可整段移到 <head> 的 <style> 里 */
     #admissions .member-table {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
-      font-size: 0.95rem;
-      line-height: 1.55;
+      font-size: 0.97rem;
+      line-height: 1.6;
       margin: 0.25rem 0 0;
     }
     #admissions .member-table col.col-name   { width: 27%; }
