@@ -29,6 +29,8 @@
     border-bottom:1px solid var(--wb-line);
   }
   .wb-wrap > .wb-sub:first-child{margin-top:0;}
+  /* 导语后的「研究方向」单独加大上间距，避免和长段落挤在一起 */
+  .wb-wrap .wb-lede + .wb-sub{margin-top:3.2rem;}
   .wb-wrap .wb-sub::before{
     content:""; width:3px; height:1.05em; flex:none;
     background:var(--wb-accent); border-radius:2px;
@@ -144,6 +146,7 @@
     .wb-wrap .wb-cols{grid-template-columns:minmax(0,1fr); column-gap:0; margin-top:2rem;}
     .wb-wrap .wb-cols > section + section{margin-top:.6rem;}
     .wb-wrap .wb-cols > section + section .wb-sub{margin-top:2rem;}
+    .wb-wrap .wb-stack > li:first-child{padding-top:.1rem;}
   }
   @media (prefers-color-scheme:dark){
     .wb-wrap{
