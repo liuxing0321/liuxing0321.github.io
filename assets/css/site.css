@@ -2,4 +2,6 @@
 
 .loading-note{color:var(--muted);font-size:14px}.load-error{padding:18px;border:1px solid #d4a35b;background:#fff8ed;border-radius:4px}.load-error button{cursor:pointer;background:#193244;color:white;padding:7px 14px;border:0;font:inherit;border-radius:3px}
 [data-include="sections/profile.html"]{align-self:start;position:sticky;top:110px}[data-include="sections/profile.html"] .profile{position:static}[data-include="sections/navigation.html"]{position:sticky;top:0;z-index:10}[data-include="sections/navigation.html"] .top{position:static}@media(max-width:740px){[data-include="sections/profile.html"]{position:static}}
+#busuanzi_value_site_pv,
+#busuanzi_value_site_uv{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:600}
 
